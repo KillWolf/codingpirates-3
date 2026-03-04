@@ -1,41 +1,56 @@
 # Aktiver fysik (Enable Physics)
 
-> Husk: Du kan indstille tilesets til at tage mindre plads i fysik-verdenen!
+> Tip: Du kan indstille tilesets til at fylde mindre i fysik-verdenen!
 
 ---
 
 ### Del 1: Tilføj fysik til tilemap
 
-Først skal vi tilføje fysik til vores tilemap, så spilleren kan kollidere med verdenen.
+Først skal vi tilføje fysik til vores tilemap, så spilleren kan kollidere med verdenen og ikke bare falde igennem gulvet.
 
 ---
 
-### Del 2: Giv spilleren tyngdekraft
+### Del 2: Giv spilleren tyngdekraft og hop
 
 **1.**
 Tilføj tyngdekraft (gravity) til din `spiller.tscn`.
-Tyngdekraft betyder, at spilleren hele tiden vil falde ned.
+Tyngdekraft er det, der trækker os ned mod jorden – ligesom i virkeligheden!
 
-Læg mærke til: Når du starter spillet nu, falder spilleren ikke endnu. Det ordner vi i de næste trin!
+Læg mærke til: Selv om du tilføjer tyngdekraft nu, falder spilleren ikke endnu. Det fikser vi i næste trin!
 
 ![Step 1](screenshots/player_physics/step-1.png)
 
 ---
 
 **2.**
-Opdater bevægelseskoden, så den kun registrerer `left` og `right`.
+Opdater bevægelseskoden, så den kun bruger `left` og `right`.
 
-Læg mærke til, at du nu kun kan gå frem og tilbage. Vi bruger `up` til at hoppe – det kommer vi til senere!
+Nu kan spilleren kun gå frem og tilbage. `up` gemmer vi til at hoppe – det kommer snart!
 
 ![Step 2](screenshots/player_physics/step-2.png)
 
 ---
 
 **3.**
-Tilføj nu følgende kode. Vi sætter `velocity.y` til at være `GRAVITY * delta`, så spilleren falder med en bestemt hastighed.
+Tilføj nu denne kode. Vi bruger `GRAVITY * delta` til at få spilleren til at falde.
 
-Vær opmærksom på: Hvis du har skrevet `_delta` med en understregning foran, skal du fjerne understregningen nu.
+**Hvad er delta?**
+Computere opdaterer spillet mange gange i sekundet. `delta` er den lille tid, der går mellem hver opdatering. Ved at gange med `delta` falder spilleren med samme hastighed, uanset om computeren er hurtig eller langsom.
 
-Vi tilføjer også `if not is_on_floor()` – det er en indbygget metode, som tjekker, om spilleren rører gulvet. På den måde falder spilleren kun, når hun ikke står på noget!
+Vi tilføjer også `if not is_on_floor()` – det er en indbygget funktion, der tjekker, om spilleren rører gulvet. Spilleren falder kun, når hun ikke står på noget!
+
+> OBS: Hvis du har skrevet `_delta` med en understregning foran, skal du fjerne understregningen nu.
 
 ![Step 3](screenshots/player_physics/step-3.png)
+
+---
+
+**4.**
+Nu tilføjer vi hop! Øverst sætter vi `const JUMP_VELOCITY = -500`.
+
+**Hvorfor minus?**
+I Godot peger y-aksen nedad – det betyder, at jo større tallet er, jo længere nede er man. For at hoppe op skal vi derfor bevæge os i den modsatte retning, altså med et negativt tal. `-500` skyder spilleren hurtigt op i luften!
+
+Nede i `_physics_process` tjekker vi, om spilleren `is_on_floor()` (står på en tile) og trykker `up`. Hvis begge dele er sande, sætter vi `velocity.y = JUMP_VELOCITY` – og spilleren hopper!
+
+![Step 4](screenshots/player_physics/step-4.png)
