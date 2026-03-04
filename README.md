@@ -54,3 +54,16 @@ I Godot peger y-aksen nedad – det betyder, at jo større tallet er, jo længer
 Nede i `_physics_process` tjekker vi, om spilleren `is_on_floor()` (står på en tile) og trykker `up`. Hvis begge dele er sande, sætter vi `velocity.y = JUMP_VELOCITY` – og spilleren hopper!
 
 ![Step 4](screenshots/player_physics/step-4.png)
+
+---
+
+**Har du tid til mere? Prøv disse udfordringer!**
+
+**Leg med tallene:**
+Prøv at ændre tallene for `GRAVITY`, `JUMP_VELOCITY` eller `speed` øverst i din kode. Hvad sker der, hvis du gør tyngdekraften meget lille? Kan du lave måne-fysik? Hvad hvis du hopper utrolig højt?
+
+**Byg dit level:**
+Åbn dit tilemap og byg videre på dit level! Tilføj flere platforme, lav en hemmelig passage, eller gør banen længere. Det er dit spil – giv det dit eget præg!
+
+**Tilføj en kasse:**
+Download grafikken fra Grafik-sektionen nedenfor. Tilføj en `RigidBody2D` til din scene, og sæt grafikken på den. En `RigidBody2D` har allerede fysik indbygget – den falder ned og kolliderer med dine tiles helt af sig selv, uden at du skal skrive kode!
