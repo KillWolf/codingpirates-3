@@ -1,6 +1,12 @@
-# Coding Pirates 3 — Godot Tutorial Notes
+# Aktiver fysisk (enable physics)
 
-## CharacterBody2D
+### Del 1:
 
-### Jump
-- Jump velocity: `-400`
+Tilføj physics til tilemap
+
+#### Del 2
+
+**1.**
+Tilføj gravity til jeres spiller.tscn. Gravity gør at spiller.tscn hele tiden vil falde nedaf.
+
+![Step 1](screenshots/player_physics/step-1.png)
