@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c3te4oelyswgr"]
+
+[ext_resource type="Texture2D" uid="uid://bnwx6qt26mft3" path="res://wooden box 4.png" id="1_uep05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0jf"]
+size = Vector2(32, 32)
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=667845414]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1202168911]
+scale = Vector2(2, 2)
+texture = ExtResource("1_uep05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=890753094]
+shape = SubResource("RectangleShape2D_mo0jf")
